@@ -6,6 +6,10 @@ class universityController {
                 const { filename: image } = req.file
                 const id = req.user.sub
 
+                if (!universityName || !mec || !image) {
+                        return res.status(400).json({ message: "Todos os campos são obrigatórios" })
+                }
+
                 const insert = await university.insert(id, universityName, mec, image);
 
                 return res.json({ insert });

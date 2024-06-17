@@ -27,7 +27,6 @@ class sessionController {
                         expiresIn
                 })
 
-                console.log(token)
 
                 return res.json({ userInfo, token });
         }

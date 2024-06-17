@@ -7,10 +7,12 @@ const express = require('express');
 const routes = require('./routes/index.routes');
 const AppError = require('./utils/AppError.js');
 const { UPLOADS_FOLDER } = require('./utils/upload.js');
+const morgan = require('morgan')
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(morgan('common'));
 app.use(express.json());
 app.use(cors())
 app.use("/images", express.static(UPLOADS_FOLDER))
